@@ -1,0 +1,24 @@
+{
+  "name": "randock/vignette-api-client",
+  "description": "Vignette PHP api client",
+  "require": {
+    "php": "^7.2.5",
+    "randock/graphql-client-generator": "^0.0.21",
+    "eljam/guzzle-jwt-middleware": "^0.7.1"
+  },
+  "prefer-stable": true,
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Randock\\Vignette\\Api\\": "src/"
+    }
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  }
+}
