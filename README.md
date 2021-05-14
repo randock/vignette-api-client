@@ -1,15 +1,19 @@
+The API works by obtaining a JWT and then sending it to the api. In order to speed things up, we need to store the JWT response by implementing the persistence strategy.
+
+The easiest way is to use a PSR-16 compatible cache adapter. Most frameworks have these.
+
+See https://github.com/eljam/guzzle-jwt-middleware#persistence
+
+Minimum required code to use the API:
+
+```php
 <?php
-
-namespace Randock\Vignette\Api;
-
 use Softonic\GraphQL\Client;
 use Softonic\GraphQL\ResponseBuilder;
 use Randock\Vignette\Api\Client\ApiClient;
 use Randock\Vignette\Api\Util\ClientBuilder;
 use Randock\Vignette\Api\Client\Object\Enum\OrderStatus;
 use Randock\Vignette\Api\Client\Object\Input\ListOrdersInput;
-
-require('../vendor/autoload.php');
 
 // This example uses "null" as persistence strategy. DO NOT DO THIS IN PROD.
 $client = new Client(
@@ -57,3 +61,4 @@ foreach ($ordersResponse->getOrders() as $order) {
 // If you try to access a field that you didn't request, an exception is thrown.
 // FieldNotSelectedException: The field orderId has not been selected in the query. Add it to the query if you need it.
 echo $ordersResponse->getOrders()[0]->getOrderId();
+```
