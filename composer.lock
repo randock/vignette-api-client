@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b88ae07558f1b66ac7d748254e13e36",
+    "content-hash": "e9b1758bf40212b110ac71533b751e3b",
     "packages": [
         {
             "name": "eljam/guzzle-jwt-middleware",
@@ -746,16 +746,16 @@
         },
         {
             "name": "randock/graphql-client-generator",
-            "version": "0.0.21",
+            "version": "0.0.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/randock/graphql-client-generator.git",
-                "reference": "1e20e49b7c081ad8e27490658f829f3c02d048da"
+                "reference": "3352fddbddeb541376973373fe5c18dc4c1dc6a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/randock/graphql-client-generator/zipball/1e20e49b7c081ad8e27490658f829f3c02d048da",
-                "reference": "1e20e49b7c081ad8e27490658f829f3c02d048da",
+                "url": "https://api.github.com/repos/randock/graphql-client-generator/zipball/3352fddbddeb541376973373fe5c18dc4c1dc6a4",
+                "reference": "3352fddbddeb541376973373fe5c18dc4c1dc6a4",
                 "shasum": ""
             },
             "require": {
@@ -779,9 +779,9 @@
             ],
             "support": {
                 "issues": "https://github.com/randock/graphql-client-generator/issues",
-                "source": "https://github.com/randock/graphql-client-generator/tree/develop"
+                "source": "https://github.com/randock/graphql-client-generator/tree/0.0.22"
             },
-            "time": "2020-06-01T16:12:54+00:00"
+            "time": "2021-05-14T12:37:21+00:00"
         },
         {
             "name": "softonic/graphql-client",
@@ -2280,7 +2280,7 @@
     "stability-flags": {
         "roave/security-advisories": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.2.5"

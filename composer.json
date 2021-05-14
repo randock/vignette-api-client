@@ -3,7 +3,7 @@
   "description": "Vignette PHP api client",
   "require": {
     "php": "^7.2.5",
-    "randock/graphql-client-generator": "^0.0.21",
+    "randock/graphql-client-generator": "^0.0.22",
     "eljam/guzzle-jwt-middleware": "^0.7.1"
   },
   "prefer-stable": true,
