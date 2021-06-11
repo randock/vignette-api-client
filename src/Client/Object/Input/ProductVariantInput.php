@@ -8,13 +8,19 @@ use Randock\Graphql\Generator\Base\AbstractInput;
 
 class ProductVariantInput extends AbstractInput
 {
-    public function __construct(string $id, ?int $quantity, ?ProductVariantDataInput $data, ?VehicleInput $vehicle)
-    {
+    public function __construct(
+        string $id,
+        ?int $quantity,
+        ?ProductVariantDataInput $data,
+        ?VehicleInput $vehicle,
+        ?float $price
+    ) {
         $__data = [];
         $__data['id'] = $id;
         $__data['quantity'] = $quantity;
         $__data['data'] = $data;
         $__data['vehicle'] = $vehicle;
+        $__data['price'] = $price;
 
         parent::__construct($__data);
     }
@@ -59,6 +65,17 @@ class ProductVariantInput extends AbstractInput
     {
         /** @var VehicleInput|null $value */
         $value = $this->_getField('vehicle', true);
+
+        return $value;
+    }
+
+    /**
+     * @return float|null
+     */
+    function getPrice(): ?float
+    {
+        /** @var float|null $value */
+        $value = $this->_getField('price', true);
 
         return $value;
     }

@@ -43,9 +43,9 @@ class ListOrdersInput extends AbstractInput
     }
 
     /**
-     * @return OrderStatus|null
+     * @return OrderStatus[]|null
      */
-    function getStatus(): ?OrderStatus
+    function getStatus(): ?array
     {
         $value = $this->_getField('status', true);
         if (null !== $value) {
