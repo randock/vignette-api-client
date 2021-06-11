@@ -10,4 +10,5 @@ class ProductVariantDeliveryMethod extends AbstractEnum
 {
     public const DIGITAL = 'digital';
     public const PACKAGE = 'package';
+    public const POST = 'post';
 }

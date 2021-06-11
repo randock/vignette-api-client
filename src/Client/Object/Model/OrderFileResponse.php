@@ -21,6 +21,17 @@ class OrderFileResponse extends AbstractModel
     /**
      * @return string
      */
+    function getId(): string
+    {
+        /** @var string $value */
+        $value = $this->_getField('id', false);
+
+        return $value;
+    }
+
+    /**
+     * @return string
+     */
     function getOriginalName(): string
     {
         /** @var string $value */

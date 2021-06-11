@@ -8,13 +8,25 @@ use Randock\Graphql\Generator\Base\AbstractInput;
 
 class CreateOrderInput extends AbstractInput
 {
-    public function __construct(UserInput $user, array $productVariants, string $locale, ?string $currency)
-    {
+    public function __construct(
+        UserInput $user,
+        array $productVariants,
+        string $locale,
+        string $currency,
+        \DateTime $startDate,
+        \DateTime $endDate,
+        string $detailUrl,
+        ?AddressInput $address
+    ) {
         $__data = [];
         $__data['user'] = $user;
         $__data['productVariants'] = $productVariants;
         $__data['locale'] = $locale;
         $__data['currency'] = $currency;
+        $__data['startDate'] = $startDate;
+        $__data['endDate'] = $endDate;
+        $__data['detailUrl'] = $detailUrl;
+        $__data['address'] = $address;
 
         parent::__construct($__data);
     }
@@ -53,12 +65,60 @@ class CreateOrderInput extends AbstractInput
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    function getCurrency(): ?string
+    function getCurrency(): string
     {
-        /** @var string|null $value */
-        $value = $this->_getField('currency', true);
+        /** @var string $value */
+        $value = $this->_getField('currency', false);
+
+        return $value;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    function getStartDate(): \DateTime
+    {
+        $value = $this->_getField('startDate', false);
+        if (null !== $value) {
+            $value = new \DateTime($value);
+        }
+
+        return $value;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    function getEndDate(): \DateTime
+    {
+        $value = $this->_getField('endDate', false);
+        if (null !== $value) {
+            $value = new \DateTime($value);
+        }
+
+        return $value;
+    }
+
+    /**
+     * @return string
+     */
+    function getDetailUrl(): string
+    {
+        /** @var string $value */
+        $value = $this->_getField('detailUrl', false);
+
+        return $value;
+    }
+
+    /**
+     * @return AddressInput|null
+     */
+    function getAddress(): ?AddressInput
+    {
+        /** @var AddressInput|null $value */
+        $value = $this->_getField('address', true);
 
         return $value;
     }

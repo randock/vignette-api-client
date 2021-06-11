@@ -55,6 +55,17 @@ class ProductVariantResponse extends AbstractModel
     }
 
     /**
+     * @return bool
+     */
+    function getVignetteDigital(): bool
+    {
+        /** @var bool $value */
+        $value = $this->_getField('vignetteDigital', false);
+
+        return $value;
+    }
+
+    /**
      * @return object|null
      */
     function getData(): ?object
@@ -87,6 +98,20 @@ class ProductVariantResponse extends AbstractModel
         $value = $this->_getField('deliveryMethod', true);
         if (null !== $value) {
             $value = new ProductVariantDeliveryMethod($value);
+        }
+
+        return $value;
+    }
+
+    /**
+     * @return object
+     */
+    function getFinalPrices(): object
+    {
+        /** @var object $value */
+        $value = $this->_getField('finalPrices', false);
+        if (null !== $value) {
+            $value = json_decode(json_encode($value));
         }
 
         return $value;
