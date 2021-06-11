@@ -15,6 +15,7 @@ class VehicleInput extends AbstractInput
         string $country,
         ?string $vin,
         ?string $brand,
+        ?string $fuel,
         ?\DateTime $registrationDate
     ) {
         $__data = [];
@@ -23,6 +24,7 @@ class VehicleInput extends AbstractInput
         $__data['country'] = $country;
         $__data['vin'] = $vin;
         $__data['brand'] = $brand;
+        $__data['fuel'] = $fuel;
         $__data['registrationDate'] = $registrationDate;
 
         parent::__construct($__data);
@@ -81,6 +83,17 @@ class VehicleInput extends AbstractInput
     {
         /** @var string|null $value */
         $value = $this->_getField('brand', true);
+
+        return $value;
+    }
+
+    /**
+     * @return string|null
+     */
+    function getFuel(): ?string
+    {
+        /** @var string|null $value */
+        $value = $this->_getField('fuel', true);
 
         return $value;
     }
