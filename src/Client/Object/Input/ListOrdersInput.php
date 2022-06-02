@@ -9,7 +9,7 @@ use Randock\Vignette\Api\Client\Object\Enum\OrderStatus;
 
 class ListOrdersInput extends AbstractInput
 {
-    public function __construct(?int $page, ?int $limit, ?array $status, ?string $search)
+    public function __construct(?int $page, ?int $limit, ?OrderStatus $status, ?string $search)
     {
         $__data = [];
         $__data['page'] = $page;
@@ -43,9 +43,9 @@ class ListOrdersInput extends AbstractInput
     }
 
     /**
-     * @return OrderStatus[]|null
+     * @return OrderStatus|null
      */
-    function getStatus(): ?array
+    function getStatus(): ?OrderStatus
     {
         $value = $this->_getField('status', true);
         if (null !== $value) {

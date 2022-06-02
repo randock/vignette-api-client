@@ -16,7 +16,16 @@ class ProductVariantResponse extends AbstractModel
      */
     public static function fromArray(?array $data): self
     {
+        $data['price'] = isset($data['price']) ? MoneyResponse::fromArray($data['price']) : null;
         $data['product'] = isset($data['product']) ? ProductResponse::fromArray($data['product']) : null;
+
+        if(isset($data['fields'])) {
+        $array = [];
+        foreach($data['fields'] as $item) {
+            $array[] = FieldResponse::fromArray($item);
+        }
+        $data['fields'] = $array;
+        }
 
         return new self($data);
     }
@@ -39,6 +48,17 @@ class ProductVariantResponse extends AbstractModel
     {
         /** @var string $value */
         $value = $this->_getField('title', false);
+
+        return $value;
+    }
+
+    /**
+     * @return MoneyResponse
+     */
+    function getPrice(): MoneyResponse
+    {
+        /** @var MoneyResponse $value */
+        $value = $this->_getField('price', false);
 
         return $value;
     }
@@ -113,6 +133,17 @@ class ProductVariantResponse extends AbstractModel
         if (null !== $value) {
             $value = json_decode(json_encode($value));
         }
+
+        return $value;
+    }
+
+    /**
+     * @return FieldResponse[]
+     */
+    function getFields(): array
+    {
+        /** @var FieldResponse[] $value */
+        $value = $this->_getField('fields', false);
 
         return $value;
     }

@@ -25,14 +25,6 @@ class OrderResponse extends AbstractModel
         $data['orderProductVariants'] = $array;
         }
 
-        if(isset($data['comments'])) {
-        $array = [];
-        foreach($data['comments'] as $item) {
-            $array[] = OrderCommentResponse::fromArray($item);
-        }
-        $data['comments'] = $array;
-        }
-
         if(isset($data['transactions'])) {
         $array = [];
         foreach($data['transactions'] as $item) {
@@ -41,6 +33,7 @@ class OrderResponse extends AbstractModel
         $data['transactions'] = $array;
         }
         $data['address'] = isset($data['address']) ? OrderAddressResponse::fromArray($data['address']) : null;
+        $data['vatLocation'] = isset($data['vatLocation']) ? OrderVatLocationResponse::fromArray($data['vatLocation']) : null;
 
         if(isset($data['files'])) {
         $array = [];
@@ -56,6 +49,14 @@ class OrderResponse extends AbstractModel
             $array[] = InvoiceResponse::fromArray($item);
         }
         $data['invoices'] = $array;
+        }
+
+        if(isset($data['notifications'])) {
+        $array = [];
+        foreach($data['notifications'] as $item) {
+            $array[] = OrderNotificationResponse::fromArray($item);
+        }
+        $data['notifications'] = $array;
         }
         $data['apiUser'] = isset($data['apiUser']) ? ApiUserResponse::fromArray($data['apiUser']) : null;
         $data['price'] = isset($data['price']) ? MoneyResponse::fromArray($data['price']) : null;
@@ -133,17 +134,6 @@ class OrderResponse extends AbstractModel
     }
 
     /**
-     * @return OrderCommentResponse[]|null
-     */
-    function getComments(): ?array
-    {
-        /** @var OrderCommentResponse[]|null $value */
-        $value = $this->_getField('comments', true);
-
-        return $value;
-    }
-
-    /**
      * @return TransactionResponse[]|null
      */
     function getTransactions(): ?array
@@ -166,6 +156,17 @@ class OrderResponse extends AbstractModel
     }
 
     /**
+     * @return OrderVatLocationResponse|null
+     */
+    function getVatLocation(): ?OrderVatLocationResponse
+    {
+        /** @var OrderVatLocationResponse|null $value */
+        $value = $this->_getField('vatLocation', true);
+
+        return $value;
+    }
+
+    /**
      * @return OrderFileResponse[]|null
      */
     function getFiles(): ?array
@@ -183,6 +184,17 @@ class OrderResponse extends AbstractModel
     {
         /** @var InvoiceResponse[]|null $value */
         $value = $this->_getField('invoices', true);
+
+        return $value;
+    }
+
+    /**
+     * @return OrderNotificationResponse[]
+     */
+    function getNotifications(): array
+    {
+        /** @var OrderNotificationResponse[] $value */
+        $value = $this->_getField('notifications', false);
 
         return $value;
     }

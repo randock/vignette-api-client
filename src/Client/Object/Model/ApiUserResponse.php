@@ -6,7 +6,7 @@ namespace Randock\Vignette\Api\Client\Object\Model;
 
 use Randock\Graphql\Generator\Base\AbstractModel;
 
-class UserResponse extends AbstractModel
+class ApiUserResponse extends AbstractModel
 {
     /**
      * @param array|null $data
@@ -32,10 +32,32 @@ class UserResponse extends AbstractModel
     /**
      * @return string
      */
-    function getName(): string
+    function getGender(): string
     {
         /** @var string $value */
-        $value = $this->_getField('name', false);
+        $value = $this->_getField('gender', false);
+
+        return $value;
+    }
+
+    /**
+     * @return string
+     */
+    function getFirstname(): string
+    {
+        /** @var string $value */
+        $value = $this->_getField('firstname', false);
+
+        return $value;
+    }
+
+    /**
+     * @return string
+     */
+    function getLastname(): string
+    {
+        /** @var string $value */
+        $value = $this->_getField('lastname', false);
 
         return $value;
     }

@@ -6,7 +6,7 @@ namespace Randock\Vignette\Api\Client\Object\Model;
 
 use Randock\Graphql\Generator\Base\AbstractModel;
 
-class UserResponse extends AbstractModel
+class OrderNotificationResponse extends AbstractModel
 {
     /**
      * @param array|null $data
@@ -30,12 +30,14 @@ class UserResponse extends AbstractModel
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
-    function getName(): string
+    function getCreatedAt(): \DateTime
     {
-        /** @var string $value */
-        $value = $this->_getField('name', false);
+        $value = $this->_getField('createdAt', false);
+        if (null !== $value) {
+            $value = new \DateTime($value);
+        }
 
         return $value;
     }
@@ -43,10 +45,10 @@ class UserResponse extends AbstractModel
     /**
      * @return string
      */
-    function getEmail(): string
+    function getType(): string
     {
         /** @var string $value */
-        $value = $this->_getField('email', false);
+        $value = $this->_getField('type', false);
 
         return $value;
     }

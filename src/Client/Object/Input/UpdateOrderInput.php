@@ -6,7 +6,7 @@ namespace Randock\Vignette\Api\Client\Object\Input;
 
 use Randock\Graphql\Generator\Base\AbstractInput;
 
-class CreateOrderInput extends AbstractInput
+class UpdateOrderInput extends AbstractInput
 {
     public function __construct(
         UserInput $user,
@@ -20,7 +20,8 @@ class CreateOrderInput extends AbstractInput
         \DateTime $startDate,
         \DateTime $endDate,
         string $detailUrl,
-        ?AddressInput $address
+        ?AddressInput $address,
+        string $id
     ) {
         $__data = [];
         $__data['user'] = $user;
@@ -35,6 +36,7 @@ class CreateOrderInput extends AbstractInput
         $__data['endDate'] = $endDate;
         $__data['detailUrl'] = $detailUrl;
         $__data['address'] = $address;
+        $__data['id'] = $id;
 
         parent::__construct($__data);
     }
@@ -171,6 +173,17 @@ class CreateOrderInput extends AbstractInput
     {
         /** @var AddressInput|null $value */
         $value = $this->_getField('address', true);
+
+        return $value;
+    }
+
+    /**
+     * @return string
+     */
+    function getId(): string
+    {
+        /** @var string $value */
+        $value = $this->_getField('id', false);
 
         return $value;
     }

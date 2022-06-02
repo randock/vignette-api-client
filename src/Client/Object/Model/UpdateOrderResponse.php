@@ -6,7 +6,7 @@ namespace Randock\Vignette\Api\Client\Object\Model;
 
 use Randock\Graphql\Generator\Base\AbstractModel;
 
-class UserResponse extends AbstractModel
+class UpdateOrderResponse extends AbstractModel
 {
     /**
      * @param array|null $data
@@ -15,16 +15,18 @@ class UserResponse extends AbstractModel
      */
     public static function fromArray(?array $data): self
     {
+        $data['order'] = isset($data['order']) ? OrderResponse::fromArray($data['order']) : null;
+
         return new self($data);
     }
 
     /**
-     * @return string
+     * @return OrderResponse
      */
-    function getId(): string
+    function getOrder(): OrderResponse
     {
-        /** @var string $value */
-        $value = $this->_getField('id', false);
+        /** @var OrderResponse $value */
+        $value = $this->_getField('order', false);
 
         return $value;
     }
@@ -32,10 +34,10 @@ class UserResponse extends AbstractModel
     /**
      * @return string
      */
-    function getName(): string
+    function getToken(): string
     {
         /** @var string $value */
-        $value = $this->_getField('name', false);
+        $value = $this->_getField('token', false);
 
         return $value;
     }
@@ -43,10 +45,10 @@ class UserResponse extends AbstractModel
     /**
      * @return string
      */
-    function getEmail(): string
+    function getPaymentLink(): string
     {
         /** @var string $value */
-        $value = $this->_getField('email', false);
+        $value = $this->_getField('paymentLink', false);
 
         return $value;
     }

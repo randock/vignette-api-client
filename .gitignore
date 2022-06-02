@@ -2,3 +2,5 @@
 /generate-client.php
 
 .idea
+etc
+docker-compose.yml

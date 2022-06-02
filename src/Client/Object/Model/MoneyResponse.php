@@ -6,7 +6,7 @@ namespace Randock\Vignette\Api\Client\Object\Model;
 
 use Randock\Graphql\Generator\Base\AbstractModel;
 
-class UserResponse extends AbstractModel
+class MoneyResponse extends AbstractModel
 {
     /**
      * @param array|null $data
@@ -21,32 +21,21 @@ class UserResponse extends AbstractModel
     /**
      * @return string
      */
-    function getId(): string
+    function getCurrencyCode(): string
     {
         /** @var string $value */
-        $value = $this->_getField('id', false);
+        $value = $this->_getField('currencyCode', false);
 
         return $value;
     }
 
     /**
-     * @return string
+     * @return float
      */
-    function getName(): string
+    function getAmount(): float
     {
-        /** @var string $value */
-        $value = $this->_getField('name', false);
-
-        return $value;
-    }
-
-    /**
-     * @return string
-     */
-    function getEmail(): string
-    {
-        /** @var string $value */
-        $value = $this->_getField('email', false);
+        /** @var float $value */
+        $value = $this->_getField('amount', false);
 
         return $value;
     }
